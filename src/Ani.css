@@ -1,0 +1,56 @@
+ul {
+  margin:0; padding:0;
+  margin-top:30px;
+  border-bottom: 1px solid lightgray;
+}
+
+li {
+  list-style:none;
+  user-select: none;
+  word-break: break-all;
+  padding: 1rem;
+}
+
+li + li {
+  border-top: 1px solid lightgray;
+}
+
+li:hover {
+  background-color: lightgray;
+}
+
+.ani-wrapper {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 37rem;
+}
+
+.ani-wrapper input, .ani-wrapper button {
+  border: none;
+  outline: none;
+}
+
+.ani-wrapper input {
+  border-bottom: 1px solid green;
+  font-size: 2.5rem;
+}
+
+.ani-wrapper button {
+  float: right;
+  margin-left: 1rem;
+  background-color: green;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+
+.ani-wrapper button:hover {
+  background: darkgreen;
+}
+
+.ani-wrapper button:active {
+    background-color: forestgreen;
+}
