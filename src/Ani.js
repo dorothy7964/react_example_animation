@@ -5,12 +5,18 @@ class Ani extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: ['hello', 'world', 'click', 'me']
+      items: ['hello', 'world', 'click', 'me'],
+      keyword : ''
     }
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange(e){
+		this.setState({ keyword : e.target.value });
+	}
+
   render() {
-    const { items } = this.state;
+    const { items, keyword } = this.state;
     const view = items.map((value, index) => {
       return <li key={index}>{value}</li>
     });
@@ -20,6 +26,8 @@ class Ani extends Component {
         <input
           type="text"
           placeholder="작성하세요."
+          value={keyword}
+          onChange={this.handleChange}
         />
 
         <button>등록</button>
@@ -27,6 +35,7 @@ class Ani extends Component {
         <ul>
           {view}
         </ul>
+        {this.state.keyword}
       </div>
     );
   }
