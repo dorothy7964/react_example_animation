@@ -9,11 +9,32 @@ class Ani extends Component {
       keyword : ''
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleChange(e){
 		this.setState({ keyword : e.target.value });
 	}
+
+  handleAdd() {
+    const newItems = this.state.items.concat([
+      this.state.keyword
+    ]);
+
+    this.setState({
+      items: newItems,
+      keyword : '',
+    });
+
+    this.inputFocus.focus();
+  }
+
+  handleKeyPress(e){
+    if( e.charCode ===13 ){
+      this.handleAdd();
+    }
+  }
 
   render() {
     const { items, keyword } = this.state;
@@ -28,14 +49,15 @@ class Ani extends Component {
           placeholder="작성하세요."
           value={keyword}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
+          ref={ ref => this.inputFocus = ref }
         />
 
-        <button>등록</button>
+        <button onClick={this.handleAdd}>등록</button>
 
         <ul>
           {view}
         </ul>
-        {this.state.keyword}
       </div>
     );
   }
