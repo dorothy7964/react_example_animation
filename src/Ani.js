@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
 import './Ani.css';
 
 class Ani extends Component {
@@ -46,13 +47,10 @@ class Ani extends Component {
   render() {
     const { items, keyword } = this.state;
 
-    const view = items.map((value, index) => (
-      <div
-         className="animation-list"
-         key={index}
-         onClick={() => this.handleRemove(index)}>
-        {value}
-      </div>
+    const view  = items.map((item, i) => (
+        <div className="animation-list" key={item} onClick={() => this.handleRemove(i)}>
+          {item}
+        </div>
     ));
 
     return(
@@ -68,7 +66,13 @@ class Ani extends Component {
 
         <button onClick={this.handleAdd}>등록</button>
 
-        {view}
+        <CSSTransitionGroup
+          className="animation-list"
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          {view}
+        </CSSTransitionGroup>
       </div>
     );
   }
