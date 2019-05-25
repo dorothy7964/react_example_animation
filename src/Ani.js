@@ -11,6 +11,7 @@ class Ani extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   handleChange(e){
@@ -36,11 +37,20 @@ class Ani extends Component {
     }
   }
 
+  handleRemove(i) {
+    const newItems = this.state.items.slice();
+    newItems.splice(i, 1);
+    this.setState({items: newItems});
+  }
+
   render() {
     const { items, keyword } = this.state;
-    const view = items.map((value, index) => {
-      return <li key={index}>{value}</li>
-    });
+
+    const view = items.map((value, index) => (
+      <li key={index} onClick={() => this.handleRemove(index)}>
+        {value}
+      </li>
+    ));
 
     return(
       <div className="ani-wrapper">
