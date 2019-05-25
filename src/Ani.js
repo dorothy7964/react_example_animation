@@ -47,9 +47,12 @@ class Ani extends Component {
     const { items, keyword } = this.state;
 
     const view = items.map((value, index) => (
-      <li key={index} onClick={() => this.handleRemove(index)}>
+      <div
+         className="animation-list"
+         key={index}
+         onClick={() => this.handleRemove(index)}>
         {value}
-      </li>
+      </div>
     ));
 
     return(
@@ -65,9 +68,7 @@ class Ani extends Component {
 
         <button onClick={this.handleAdd}>등록</button>
 
-        <ul>
-          {view}
-        </ul>
+        {view}
       </div>
     );
   }
