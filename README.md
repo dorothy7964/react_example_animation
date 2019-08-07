@@ -1,3 +1,6 @@
+<img src="src/image/img.png" width="600px" />
+
+
 # react-transition-group
 
 A fork, and "drop in" replacement for the original React TransitionGroup addons. Eventually this package can supercede the original addon, letting the React team focus on other stuff and giving these components a chance to get the attention they deserve out on their own. See: https://github.com/facebook/react/issues/8125 for more context.
